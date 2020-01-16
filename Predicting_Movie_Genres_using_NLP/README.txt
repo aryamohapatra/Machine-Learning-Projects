@@ -1,4 +1,13 @@
-This README describes data in the CMU Movie Summary Corpus, a collection of 42,306 movie plot summaries and metadata at both the movie level (including box office revenues, genre and date of release) and character level (including gender and estimated age).  This data supports work in the following paper:
+This README describes the information of this project. This project has been formulated on CMU Movie Summary Corpus.The download link for the database is http://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz.
+
+We have used following two files as our primary data.
+
+movie.metadata.tsv : Metadata for 81,741 movies. Contains details like Movie name,Release year, Genres etc
+plot_summaries.txt : Plot summaries of 42,306 movies. Each line contains the Wikipedia movie ID (which indexes into movie.metadata.tsv) followed by the plot summary
+
+Files have been attahed in the repository.
+
+ This data supports work in the following paper:
 
 David Bamman, Brendan O'Connor and Noah Smith, "Learning Latent Personas of Film Characters," in: Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL 2013), Sofia, Bulgaria, August 2013.
 
