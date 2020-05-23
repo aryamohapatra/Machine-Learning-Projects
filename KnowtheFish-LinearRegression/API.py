@@ -1,3 +1,17 @@
+import sys
+import subprocess
+import pkg_resources
+""""Checking required packages"""
+required = {'flask', 'sklearn','joblib','numpy','pandas'}#Required modules
+installed = {pkg.key for pkg in pkg_resources.working_set}#get installed modules
+missing = required - installed
+
+if missing:
+    print("Installing Missing modules")
+    python = sys.executable
+    subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
+print("All required modules are already available")
+    
 import flask
 from flask import request
 app = flask.Flask(__name__)
@@ -15,8 +29,8 @@ def default():
 
 def predict():
     
-    from sklearn.externals import joblib
-    model = joblib.load('Fish_weight_Predictor.ml')
+    from joblib import dump, load#Using joblib insted of sklearn.external
+    model =load('Fish_weight_Predictor.ml')
     import pandas as pd
     from sklearn.preprocessing import StandardScaler,LabelEncoder
     Fish_details = pd.read_csv('Fish.csv')
